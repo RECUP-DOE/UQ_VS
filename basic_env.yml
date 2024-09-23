@@ -1,0 +1,24 @@
+name: vs_env
+channels:
+  - rdkit
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - numpy
+  - python=3.8.*
+  - pytorch
+  - pytorch-cuda
+  - botorch
+  - scikit-learn
+  - scipy
+  - networkx
+  - tqdm
+  - nltk
+  - pip
+  - pip:
+    - pytorch_lightning
+    - pytdc
+    - chemprop==1.7.1
