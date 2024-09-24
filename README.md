@@ -22,5 +22,5 @@ python run_vi_training.py --prop_name=DRD2 --AS_dim=10
 # Perform prediction via Bayesian inference of the predictor enabled by the AS posterior
 
 ```
-python run_screening_AS_pred.py --prop_name=DRD2 --AS_dim=10 --trial=0
+python run_screening_AS_pred.py --prop_name=DRD2 --AS_dim=10 --trial=0 --num_models=10
 ```
