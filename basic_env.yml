@@ -1,6 +1,5 @@
 name: vs_env
 channels:
-  - rdkit
   - pytorch
   - nvidia
   - conda-forge
