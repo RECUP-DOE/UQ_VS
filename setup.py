@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='recup_prop_pred_as',
+    name='recup_workflow',
     version='1.0.0',
     description='',
     author='A N M Nafiz Abeer',

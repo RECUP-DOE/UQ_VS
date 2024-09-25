@@ -5,13 +5,13 @@ num_models_array=(10 20 30)
 AS_dim_array=(5 10 15 20)
 prop_array=('DRD2' 'GSK3B')
 
-echo "training property predictor model"
+# echo "training property predictor model"
 
-for prop_name in "${prop_array[@]}"; do
-    python train_surrogate.py --prop_name=$prop_name
-done
+# for prop_name in "${prop_array[@]}"; do
+#    python train_surrogate.py --prop_name=$prop_name
+# done
 
-echo "finished training property predictor model"
+# echo "finished training property predictor model"
 
 for prop_name in "${prop_array[@]}"; do
     
