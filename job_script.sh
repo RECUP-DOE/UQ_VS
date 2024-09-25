@@ -1,9 +1,9 @@
 # Meta flags
 SECONDS=0
-trial_array=(0 ) #1 2 3 4)
-num_models_array=(10 )#20 30)
-AS_dim_array=(5 ) #10 15 20)
-prop_array=('DRD2' ) #'GSK3B')
+trial_array=(0 1 2 3 4)
+num_models_array=(10 20 30)
+AS_dim_array=(5 10 15 20)
+prop_array=('DRD2' 'GSK3B')
 
 echo "training property predictor model"
 
