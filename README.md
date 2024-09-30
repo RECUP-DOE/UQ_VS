@@ -26,7 +26,7 @@ The trained predictor model does not provide the uncertainty in its prediction.
 To perform UQ through AS, first we need to construct the active subspace around the pre-trained model weights, and learn the posterior distribution over the active subspace parameters by variational inference technique. Later this learned/approximated posterior distribution is used in Bayesian inference for the molecules during screening.
 
 ## Construct active subspace
-Once the predictor model is trained, its checkpoint file will be saved under `${prop_name}_checkpoints` directory. Next the following code will learn the active subspace (the projection matrix to be specific) around that pre-trained model weights.
+Once the predictor model is trained, its checkpoint file will be saved under `${prop_name}_checkpoints` directory. Next the following code will learn the active subspace (the projection matrix $\mathbf{P}$ to be specific) around that pre-trained model weights.
 The `AS_dim` determines the dimension of the active subspace. 
 ```
 python run_active_subspace_construction.py --prop_name=DRD2 --AS_dim=10
@@ -42,7 +42,7 @@ python run_vi_training.py --prop_name=DRD2 --AS_dim=10
 # Perform prediction via Bayesian inference of the predictor enabled by the AS posterior
 Following script uses the approximated posterior distribution $p(\boldsymbol{\omega} | \mathcal{D})$ to predict the property (class label) of the candidate molecules for screening. These candidates are in the `data` directory as `${prop_name}_screening_cands.csv`. The csv file contains the SMILES representation of the candidate molecules, and a dummy class label for the property. The candidates are generated from the latent space of the JT-VAE model.
 
-The argument `trial` denotes the seed for the screenning experiment. This is done for replicating the result in multiple runs with same arguments. `num_models` sets the number of model samples we use for Bayesian inference. For example, with `--num_models=10`, 10 samples are drawn from the approximated posterior distribution $p(\boldsymbol{\omega} | \mathcal{D})$, and corresponding 10 predictor models ($\boldsymbol{\theta} = \boldsymbol{\theta}_0 + \operatorname{P}\boldsymbol{\omega}$) are used for performing the prediction. After the completion of the following program, we should have the file: `./log/drd2/basic/AS/DRD2_screening_trial_0_AS_dim_10_num_models_10.npz`
+The argument `trial` denotes the seed for the screenning experiment. This is done for replicating the result in multiple runs with same arguments. `num_models` sets the number of model samples we use for Bayesian inference. For example, with `--num_models=10`, 10 samples are drawn from the approximated posterior distribution $p(\boldsymbol{\omega} | \mathcal{D})$, and corresponding 10 predictor models ($\boldsymbol{\theta} = \boldsymbol{\theta}_0 + \mathbf{P}\boldsymbol{\omega}$) are used for performing the prediction. After the completion of the following program, we should have the file: `./log/drd2/basic/AS/DRD2_screening_trial_0_AS_dim_10_num_models_10.npz`
 ```
 python run_screening_AS_pred.py --prop_name=DRD2 --AS_dim=10 --trial=0 --num_models=10
 ```
