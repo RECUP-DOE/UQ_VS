@@ -10,7 +10,7 @@ dependencies:
   - python=3.8.*
   - pytorch
   - pytorch-cuda
-  - scikit-learn
+  - scikit-learn=1.2.2
   - scipy
   - networkx
   - tqdm

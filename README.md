@@ -14,6 +14,9 @@ conda env create -f basic_env.yml
 source activate vs_env
 pip install -e .
 ```
+
+The following three sections describe the individual steps in the work. And the [last section](#reproducing-the-experiment) has the instructions for running all experiments.
+
 # Train the predictor model
 Following command will train a predictor model for DRD2. Currenlty the `train_surrogate.py` has implementation for $\text{DRD2}$, $\text{GSK}3\beta$ and $\text{JNK}3$. For a different property, the training/validation/test data split needs to defined under the `data` folder. Additionally minor edits are needed inside the `train_surrogate.py`.
 ```
