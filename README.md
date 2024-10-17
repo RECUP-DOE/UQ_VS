@@ -1,10 +1,17 @@
 # Uncertainty guided virtual screening of small molecules
-This repository contains the scripts to perform uncertainty guided virtual screening by utilizing a deterministic pre-trained predictor model. 
+This repository contains the scripts to perform uncertainty guided virtual screening by utilizing a deterministic pre-trained predictor model. We utlize the active subspace approach [<a href="#ref1">1</a>, <a href="#ref2">2</a>] to enable the uncertainty quantification of the pre-trained predictor model. 
+
 
 ![alt text](image.png)
 
 The UQ guided virtual screening pipeline takes the [pre-trained property predictor](#train-the-predictor-model) and enables the uncertainty quantification by the [active subspace (AS)](#enable-uq-for-the-given-predictor-model) around the pre-trained model weights. Next, the properties of the candidate moleules are predicted in [Bayesian inference manner](#perform-prediction-via-bayesian-inference-of-the-predictor-enabled-by-the-as-posterior) which also provides the uncertainty in the predictions. Finally we perform [screening](UQ_guided_virtual_screening.ipynb) based on the predictions and the corresponding uncertainties. By removing samples with higher uncertainty (lower confidence) in predicted class-labels, we want to improve the hit rate (success rate of selecting active samples in the screened pool of candidates) of the virtual screening process.
 
+
+## References
+
+1. <a id="ref1"></a> [Learning Active Subspaces for Effective and Scalable Uncertainty Quantification in Deep Neural Networks](https://ieeexplore.ieee.org/document/10448265)  
+
+2. <a id="ref2"></a> [Leveraging Active Subspaces to Capture Epistemic Model Uncertainty in Deep Generative Models for Molecular Design](https://arxiv.org/abs/2405.00202)  
 
 # Install dependencies
 The `basic_env.yml` file contains the required package information. Run the following command to create a conda environment for the project.
