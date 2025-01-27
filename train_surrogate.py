@@ -9,6 +9,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--prop_name', default = 'DRD2',type=str ,help='property name')
+    parser.add_argument('--epochs', default = 20,type=int ,help='training epochs')
+    parser.add_argument('--batch_size', default = 64,type=int ,help='batch size')
+    parser.add_argument('--num_workers', default = 2,type=int ,help='number of workers')
     cli_args = parser.parse_args()
 
 
@@ -21,9 +24,9 @@ if __name__ == "__main__":
         '--metric', 'precision',
         #'--extra_metrics', 'recall,precision,accuracy',
         '--quiet',
-        '--epochs', '20',
-        '--batch_size', '64',
-        '--num_workers', '2',
+        '--epochs', f'{cli_args.epochs}',
+        '--batch_size', f'{cli_args.batch_size}',
+        '--num_workers', f'{cli_args.num_workers}',
     #    '--features_generator', 'rdkit_2d_normalized', '--no_features_scaling',
     ]
 
