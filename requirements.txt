@@ -1,0 +1,11 @@
+matplotlib
+numpy
+torch
+scikit-learn==1.2.2
+scipy
+networkx
+tqdm
+nltk
+pytorch-lightning
+PyTDC
+chemprop==1.7.1

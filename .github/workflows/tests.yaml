@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - main
+      - ci_dev
+  pull_request:
+    branches: 
+      - main
+      - ci_dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'  # Adjust based on your needs
+
+      - name: Install dependencies
+        run: |
+          python -m venv pip_venv
+          source pip_venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+        
+          # pip install -e .
+
+      - name: Run tests
+        run: |
+          source pip_venv/bin/activate
+          pip list
+          
+          python train_surrogate.py --prop_name=DRD2 --epochs=1 --num_workers=0
+
+          deactivate
